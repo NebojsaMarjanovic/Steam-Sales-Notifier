@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamSalesNotifier.Shared", "SteamSalesNotifier.Shared\SteamSalesNotifier.Shared.csproj", "{A95108EB-70E9-4C15-908A-5A772DA60A9F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamSalesNotifier.MailSender", "SteamSalesNotifier.MailSender\SteamSalesNotifier.MailSender.csproj", "{2FDC0898-B503-4176-886B-F8F62B08197E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamSalesNotifier.Crawler", "SteamSalesNotifier.Crawler\SteamSalesNotifier.Crawler.csproj", "{E1F3D93F-F426-4C5B-B907-F677F6726E32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamSalesNotifier.SmsSender", "SteamSalesNotifier.SmsSender\SteamSalesNotifier.SmsSender.csproj", "{26804993-A33E-4E2B-BCC4-F6CA1DFEBBD3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamSalesNotifier.Formatter", "SteamSalesNotifier.Formatter\SteamSalesNotifier.Formatter.csproj", "{7C59ECD3-0603-4855-A8C9-4F1D654957CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A95108EB-70E9-4C15-908A-5A772DA60A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A95108EB-70E9-4C15-908A-5A772DA60A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A95108EB-70E9-4C15-908A-5A772DA60A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A95108EB-70E9-4C15-908A-5A772DA60A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FDC0898-B503-4176-886B-F8F62B08197E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FDC0898-B503-4176-886B-F8F62B08197E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FDC0898-B503-4176-886B-F8F62B08197E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FDC0898-B503-4176-886B-F8F62B08197E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1F3D93F-F426-4C5B-B907-F677F6726E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1F3D93F-F426-4C5B-B907-F677F6726E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1F3D93F-F426-4C5B-B907-F677F6726E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1F3D93F-F426-4C5B-B907-F677F6726E32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26804993-A33E-4E2B-BCC4-F6CA1DFEBBD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26804993-A33E-4E2B-BCC4-F6CA1DFEBBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26804993-A33E-4E2B-BCC4-F6CA1DFEBBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26804993-A33E-4E2B-BCC4-F6CA1DFEBBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C59ECD3-0603-4855-A8C9-4F1D654957CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C59ECD3-0603-4855-A8C9-4F1D654957CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C59ECD3-0603-4855-A8C9-4F1D654957CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C59ECD3-0603-4855-A8C9-4F1D654957CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A3ADAD5-F4C8-4536-9620-5D0350D80685}
+	EndGlobalSection
+EndGlobal
