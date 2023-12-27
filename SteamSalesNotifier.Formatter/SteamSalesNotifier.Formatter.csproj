@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-SteamSalesNotifier.Formatter-781147b2-7621-4619-992b-0dc8650fdcdd</UserSecretsId>
 	  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	  <OutputType>Exe</OutputType>
 
   </PropertyGroup>
 

@@ -6,28 +6,61 @@
         body {
             font-family: Arial, sans-serif;
         }
+
         .container {
             max-width: 600px;
             margin: 0 auto;
         }
+
         .header {
             background-color: #3498db;
             color: #ffffff;
             padding: 20px;
             text-align: center;
         }
+
         .greetings {
             margin-top: 20px;
             text-align: center;
         }
+
         .games-section {
             margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
+
         .game {
+            width: 48%; /* Adjust the width as needed */
+            box-sizing: border-box;
             border: 1px solid #ddd;
             margin-bottom: 20px;
             padding: 10px;
             border-radius: 5px;
+        }
+
+            .game img {
+                max-width: 100%;
+                height: auto;
+            }
+
+        .price-info {
+            margin-top: 10px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .os-icons {
+            margin-top: 10px;
+        }
+
+        .os-icon {
+            font-size: 24px;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -37,20 +70,42 @@
             <h1>Welcome to Our Gaming Platform</h1>
         </div>
         <div class="greetings">
-            <p>Hello@* , @userName! *@ We hope you're having a great day.</p>
+            <p>Hello! We hope you're having a great day.</p>
         </div>
         <div class="games-section">
-            <h2>Featured Games with Prizes</h2>
             @foreach (var game in Model.Games)
             {
                 <div class="game">
+                    <img src="@game.Image" alt="@game.Name" />
                     <h3>@game.Name</h3>
-                    <p>Prize: @game.FinalPrize</p>
+                    @if (game.Discounted)
+                    {
+                        <div class="price-info">
+                            <p>
+                                Price:
+                                <i class="original-price">@game.OriginalPrice @game.Currency</i>
+                                <b>@game.FinalPrice @game.Currency</b>
+                            </p>
+                            <p>Discount:<b><i>@game.DiscountPercent%</i></b></p>
+                        </div>
+                    }
+                    <div class="os-icons">
+                        @if (game.WindowsAvailable)
+                        {
+                            <i class="fab fa-windows os-icon" title="Windows"></i>
+                        }
+                        @if (game.MacAvailable)
+                        {
+                            <i class="fab fa-apple os-icon" title="Mac"></i>
+                        }
+                        @if (game.LinuxAvailable)
+                        {
+                            <i class="fab fa-linux os-icon" title="Linux"></i>
+                        }
+                    </div>
                 </div>
             }
         </div>
     </div>
 </body>
 </html>
-
-

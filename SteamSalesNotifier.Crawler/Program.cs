@@ -25,7 +25,7 @@ var host = Host.CreateDefaultBuilder(args)
         //Options
         services.AddOptions<SteamApiOptions>().Bind(hostContext.Configuration.GetSection("SteamApi"));
         services.AddOptions<SenderChannelConfiguration>().Bind(hostContext.Configuration
-            .GetSection("RabbitMqConfiguration:SenderChannelConfiguration"));
+            .GetSection("RabbitMqConfiguration:CrawlerSenderChannel"));
 
         //Http
         services.AddHttpClient();
