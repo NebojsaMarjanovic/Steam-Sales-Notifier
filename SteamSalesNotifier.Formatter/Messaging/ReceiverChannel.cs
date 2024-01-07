@@ -34,7 +34,13 @@ namespace SteamSalesNotifier.Formatter.Messaging
                 var html = await _formatterService.FormatTemplate(_templateOptions.FilePath, message.Games);
                 if (html is null)
                     return;
-                MailNotification mailNotification = new MailNotification(Html: html, users: new List<User> { new User("Nebojsa", "nebojsamarjanovic6@gmail.com") });
+                MailNotification mailNotification = new MailNotification(
+                    Html: html,
+                    Users: new List<User>
+                    { 
+                        new User("Nebojsa", "nebojsamarjanovic6@gmail.com"),
+                        new User("Milena", "milena.rabrenovic99@gmail.com")
+                    });
 
                 _senderChannel.SendMessage(mailNotification);
             }

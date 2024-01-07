@@ -5,11 +5,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            font-size: 16px;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .header {
@@ -26,18 +28,27 @@
 
         .games-section {
             margin-top: 30px;
+            text-align: center;
+        }
+
+        .games-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .game-row {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
         }
 
         .game {
-            width: 48%; /* Adjust the width as needed */
+            width: 48%;
             box-sizing: border-box;
             border: 1px solid #ddd;
+            border-radius: 5px;
             margin-bottom: 20px;
             padding: 10px;
-            border-radius: 5px;
         }
 
             .game img {
@@ -45,13 +56,23 @@
                 height: auto;
             }
 
+            .game h3 {
+                font-size: 18px; /* Increased font size for game name */
+                margin-bottom: 10px;
+            }
+
         .price-info {
             margin-top: 10px;
+            font-size: 14px; /* Increased font size for price information */
         }
 
         .original-price {
             text-decoration: line-through;
             color: #888;
+        }
+
+        .discount-percent {
+            font-size: 16px; /* Increased font size for discount percentage */
         }
 
         .os-icons {
@@ -72,40 +93,76 @@
         <div class="greetings">
             <p>Hello! We hope you're having a great day.</p>
         </div>
-        <div class="games-section">
-            @foreach (var game in Model.Games)
-            {
-                <div class="game">
-                    <img src="@game.Image" alt="@game.Name" />
-                    <h3>@game.Name</h3>
-                    @if (game.Discounted)
-                    {
-                        <div class="price-info">
-                            <p>
-                                Price:
-                                <i class="original-price">@game.OriginalPrice @game.Currency</i>
-                                <b>@game.FinalPrice @game.Currency</b>
-                            </p>
-                            <p>Discount:<b><i>@game.DiscountPercent%</i></b></p>
-                        </div>
-                    }
-                    <div class="os-icons">
-                        @if (game.WindowsAvailable)
+        <table class="games-table">
+            <tbody>
+                @for (int i = 0; i < Model.Games.Count; i += 2)
+                {
+                    <tr class="game-row">
+                        <td class="game">
+                            <img src="@Model.Games[i].Image" alt="@Model.Games[i].Name" />
+                            <h3>@Model.Games[i].Name</h3>
+                            @if (Model.Games[i].Discounted)
+                            {
+                                <div class="price-info">
+                                    <p>
+                                        Price:
+                                        <i class="original-price">@Model.Games[i].OriginalPrice @Model.Games[i].Currency</i>
+                                        <b>@Model.Games[i].FinalPrice @Model.Games[i].Currency</b>
+                                    </p>
+                                    <p class="discount-percent">Discount: <b><i>@Model.Games[i].DiscountPercent%</i></b></p>
+                                </div>
+                            }
+                            <div class="os-icons">
+                                @if (Model.Games[i].WindowsAvailable)
+                                {
+                                    <i class="fab fa-windows os-icon" title="Windows"></i>
+                                }
+                                @if (Model.Games[i].MacAvailable)
+                                {
+                                    <i class="fab fa-apple os-icon" title="Mac"></i>
+                                }
+                                @if (Model.Games[i].LinuxAvailable)
+                                {
+                                    <i class="fab fa-linux os-icon" title="Linux"></i>
+                                }
+                            </div>
+                        </td>
+                        @if (i + 1 < Model.Games.Count)
                         {
-                            <i class="fab fa-windows os-icon" title="Windows"></i>
+                            <td class="game">
+                                <img src="@Model.Games[i + 1].Image" alt="@Model.Games[i + 1].Name" />
+                                <h3>@Model.Games[i + 1].Name</h3>
+                                @if (Model.Games[i + 1].Discounted)
+                                {
+                                    <div class="price-info">
+                                        <p>
+                                            Price:
+                                            <i class="original-price">@Model.Games[i + 1].OriginalPrice @Model.Games[i + 1].Currency</i>
+                                            <b>@Model.Games[i + 1].FinalPrice @Model.Games[i + 1].Currency</b>
+                                        </p>
+                                        <p class="discount-percent">Discount:<b><i>@Model.Games[i + 1].DiscountPercent%</i></b></p>
+                                    </div>
+                                }
+                                <div class="os-icons">
+                                    @if (Model.Games[i + 1].WindowsAvailable)
+                                    {
+                                        <i class="fab fa-windows os-icon" title="Windows"></i>
+                                    }
+                                    @if (Model.Games[i + 1].MacAvailable)
+                                    {
+                                        <i class="fab fa-apple os-icon" title="Mac"></i>
+                                    }
+                                    @if (Model.Games[i + 1].LinuxAvailable)
+                                    {
+                                        <i class="fab fa-linux os-icon" title="Linux"></i>
+                                    }
+                                </div>
+                            </td>
                         }
-                        @if (game.MacAvailable)
-                        {
-                            <i class="fab fa-apple os-icon" title="Mac"></i>
-                        }
-                        @if (game.LinuxAvailable)
-                        {
-                            <i class="fab fa-linux os-icon" title="Linux"></i>
-                        }
-                    </div>
-                </div>
-            }
-        </div>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
