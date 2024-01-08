@@ -2,167 +2,82 @@
 <html>
 <head>
     <title>Email Template</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .header {
-            background-color: #3498db;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .greetings {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .games-section {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .games-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        .game-row {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .game {
-            width: 48%;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            padding: 10px;
-        }
-
-            .game img {
-                max-width: 100%;
-                height: auto;
-            }
-
-            .game h3 {
-                font-size: 18px; /* Increased font size for game name */
-                margin-bottom: 10px;
-            }
-
-        .price-info {
-            margin-top: 10px;
-            font-size: 14px; /* Increased font size for price information */
-        }
-
-        .original-price {
-            text-decoration: line-through;
-            color: #888;
-        }
-
-        .discount-percent {
-            font-size: 16px; /* Increased font size for discount percentage */
-        }
-
-        .os-icons {
-            margin-top: 10px;
-        }
-
-        .os-icon {
-            font-size: 24px;
-            margin-right: 5px;
-        }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
+<body style="font-family: Arial, sans-serif; font-size: 16px; background-color: #171a21; color: #fff; margin: 0; padding: 0;">
+
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+
+        <div style="background-color: #1b2838; color: #fff; padding: 20px; text-align: center;">
             <h1>Welcome to Our Gaming Platform</h1>
         </div>
-        <div class="greetings">
+
+        <div style="margin-top: 20px; text-align: center; color: #ddd;">
             <p>Hello! We hope you're having a great day.</p>
         </div>
-        <table class="games-table">
+
+        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
             <tbody>
                 @for (int i = 0; i < Model.Games.Count; i += 2)
                 {
-                    <tr class="game-row">
-                        <td class="game">
-                            <img src="@Model.Games[i].Image" alt="@Model.Games[i].Name" />
-                            <h3>@Model.Games[i].Name</h3>
+                    <tr>
+                        <td style="width: 48%; box-sizing: border-box; border: 1px solid #1b2838; border-radius: 5px; margin-bottom: 20px;">
+
+                            <div style="position: relative; overflow: hidden; border-radius: 5px;">
+                                <img src="@Model.Games[i].Image" alt="@Model.Games[i].Name" style="max-width: 100%; height: auto; border-radius: 5px; display: block; position: relative; top: 0; left: 0;" oncontextmenu="return false;" ondragstart="return false;" onmousedown="return false;">
+                                <!-- Disable right-click and dragging for image -->
+                            </div>
+
+                            <h3 style="font-size: 18px; margin: 10px 0; color: #fff;">
+                                @Model.Games[i].Name
+                            </h3>
+
                             @if (Model.Games[i].Discounted)
                             {
-                                <div class="price-info">
-                                    <p>
-                                        Price:
-                                        <i class="original-price">@Model.Games[i].OriginalPrice @Model.Games[i].Currency</i>
-                                        <b>@Model.Games[i].FinalPrice @Model.Games[i].Currency</b>
-                                    </p>
-                                    <p class="discount-percent">Discount: <b><i>@Model.Games[i].DiscountPercent%</i></b></p>
+                                <div style="margin-top: 10px; font-size: 18px; color: #4CAF50;"><b>-@Model.Games[i].DiscountPercent%</b></div>
+                            }
+
+                            @if (Model.Games[i].Discounted)
+                            {
+                                <div style="margin-top: 10px; font-size: 14px;">
+                                    <p style="text-decoration: line-through; color: #888;">@Model.Games[i].OriginalPrice @Model.Games[i].Currency</p>
+                                    <p style="font-size: 18px; color: #e74c3c; font-weight: bold;">@Model.Games[i].FinalPrice @Model.Games[i].Currency</p>
                                 </div>
                             }
-                            <div class="os-icons">
-                                @if (Model.Games[i].WindowsAvailable)
-                                {
-                                    <i class="fab fa-windows os-icon" title="Windows"></i>
-                                }
-                                @if (Model.Games[i].MacAvailable)
-                                {
-                                    <i class="fab fa-apple os-icon" title="Mac"></i>
-                                }
-                                @if (Model.Games[i].LinuxAvailable)
-                                {
-                                    <i class="fab fa-linux os-icon" title="Linux"></i>
-                                }
-                            </div>
+
                         </td>
+
                         @if (i + 1 < Model.Games.Count)
                         {
-                            <td class="game">
-                                <img src="@Model.Games[i + 1].Image" alt="@Model.Games[i + 1].Name" />
-                                <h3>@Model.Games[i + 1].Name</h3>
+                            <td style="width: 48%; box-sizing: border-box; border: 1px solid #1b2838; border-radius: 5px; margin-bottom: 20px;">
+
+                                <div style="position: relative; overflow: hidden; border-radius: 5px;">
+                                    <img src="@Model.Games[i + 1].Image" alt="@Model.Games[i + 1].Name" style="max-width: 100%; height: auto; border-radius: 5px; display: block; position: relative; top: 0; left: 0;" oncontextmenu="return false;" ondragstart="return false;" onmousedown="return false;">
+                                    <!-- Disable right-click and dragging for image -->
+                                </div>
+
+                                <h3 style="font-size: 18px; margin: 10px 0; color: #fff;">
+                                    @Model.Games[i + 1].Name
+                                </h3>
+
                                 @if (Model.Games[i + 1].Discounted)
                                 {
-                                    <div class="price-info">
-                                        <p>
-                                            Price:
-                                            <i class="original-price">@Model.Games[i + 1].OriginalPrice @Model.Games[i + 1].Currency</i>
-                                            <b>@Model.Games[i + 1].FinalPrice @Model.Games[i + 1].Currency</b>
-                                        </p>
-                                        <p class="discount-percent">Discount:<b><i>@Model.Games[i + 1].DiscountPercent%</i></b></p>
+                                    <div style="margin-top: 10px; font-size: 18px; color: #4CAF50;"><b>-@Model.Games[i + 1].DiscountPercent%</b></div>
+                                }
+
+                                @if (Model.Games[i + 1].Discounted)
+                                {
+                                    <div style="margin-top: 10px; font-size: 14px;">
+                                        <p style="text-decoration: line-through; color: #888;">@Model.Games[i + 1].OriginalPrice @Model.Games[i + 1].Currency</p>
+                                        <p style="font-size: 18px; color: #e74c3c; font-weight: bold;">@Model.Games[i + 1].FinalPrice @Model.Games[i + 1].Currency</p>
                                     </div>
                                 }
-                                <div class="os-icons">
-                                    @if (Model.Games[i + 1].WindowsAvailable)
-                                    {
-                                        <i class="fab fa-windows os-icon" title="Windows"></i>
-                                    }
-                                    @if (Model.Games[i + 1].MacAvailable)
-                                    {
-                                        <i class="fab fa-apple os-icon" title="Mac"></i>
-                                    }
-                                    @if (Model.Games[i + 1].LinuxAvailable)
-                                    {
-                                        <i class="fab fa-linux os-icon" title="Linux"></i>
-                                    }
-                                </div>
                             </td>
                         }
                     </tr>
                 }
             </tbody>
         </table>
+
     </div>
 </body>
 </html>

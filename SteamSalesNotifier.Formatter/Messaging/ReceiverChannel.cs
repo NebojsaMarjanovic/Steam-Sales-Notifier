@@ -38,8 +38,7 @@ namespace SteamSalesNotifier.Formatter.Messaging
                     Html: html,
                     Users: new List<User>
                     { 
-                        new User("Nebojsa", "nebojsamarjanovic6@gmail.com"),
-                        new User("Milena", "milena.rabrenovic99@gmail.com")
+                        new User("Nebojsa", "nebojsamarjanovic6@gmail.com")
                     });
 
                 _senderChannel.SendMessage(mailNotification);
